@@ -1,6 +1,6 @@
 @echo off
-set SCRIPT_DIR=%~dp0
 
+set SCRIPT_DIR=%~dp0
 call %SCRIPT_DIR%\config.bat
 set VDIR=%PROFILE_DIR%\venv
 set VENV=%VDIR%\default
