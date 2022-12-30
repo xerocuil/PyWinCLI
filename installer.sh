@@ -49,6 +49,8 @@ uninstall(){
 
 if [[ -z $CMD ]]; then
   install
+elif [[ $CMD == "-u" ]]; then
+  uninstall
 else
   $CMD
 fi
