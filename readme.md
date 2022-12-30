@@ -1,19 +1,19 @@
-# PyWin
+# PyWinCLI
 
-PyWin is a CLI for managing Python environments in a Wine prefix.
+PyWinCLI is a CLI for managing Python environments in a Wine prefix.
 
 ## Usage
 
-`pywin <option>`
+`pywinc <option>`
 
 Option           | Description
 :--------------- | :----------
-`-t`, `terminal` | Open PyWin in Linux terminal
-`-c`, `console`  | Open PyWin in Wine console
-`-w`, `wcfg`     | Run winecfg for PyWin prefix
+`-t`, `terminal` | Open PyWinCLI in Linux terminal
+`-c`, `console`  | Open PyWinCLI in Wine console
+`-w`, `wcfg`     | Run winecfg for PyWinCLI prefix
 `-h`, `help`     | Display this help message
 
-Once PyWin is loaded, use the `pve` command to load the default Python virtual environment or run with one of the options listed below.
+Once PyWinCLI is loaded, use the `pve` command to load the default Python virtual environment or run with one of the options listed below.
 
 `pve <option>`
 
@@ -26,12 +26,13 @@ Option     | Description
 
 ## Installation
 
-Run the `installer.sh` script to install PyWin. Running `installer.sh` with the `-u` flag will uninstall PyWin.
+Run the `installer.sh` script to install PyWinCLI.  
+Running `installer.sh` with the `-u` flag will uninstall PyWinCLI.
 
 The installer will:
 
-- Create a Wine prefix (default: `$HOME/.pywin/pfx`).
-- Create a Python environment directory (default: `$HOME/.pywin/venv`).
+- Create a Wine prefix (default: `$HOME/.pywinc/pfx`).
+- Create a Python environment directory (default: `$HOME/.pywinc/venv`).
 - Install [Python 3.11.1](https://www.python.org/ftp/python/3.11.1/python-3.11.1-amd64.exe) to Wine prefix.
 	+ **Required Options:**
       - Add python.exe to PATH

@@ -1,6 +1,13 @@
 # Changelog
 
-## [0.1] - Build 2022.1230
+## [v0.2] - Build 2022.1230.01
+
+### Changed
+
+- App name from PyWin to PyWinCLI
+- Updated documentation
+
+## [v0.1] - Build 2022.1230.00
 
 ### Added
 

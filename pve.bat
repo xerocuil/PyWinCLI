@@ -1,10 +1,10 @@
 @echo off
 
-rem # pve (PyWin)
+rem # pve (PyWinCLI)
 
 rem ## Global variables
 set SCRIPT_DIR=%~dp0
-set PROFILE_DIR=Z:\home\%USER%\.pywin
+set PROFILE_DIR=Z:\home\%USER%\.pywinc
 set VDIR=%PROFILE_DIR%\venv
 set VENV=%VDIR%\default
 set OPT1=%1
@@ -89,7 +89,7 @@ if exist %VENV% (
 rem ### List available virtual environments
 :list
 echo.
-echo ## PyWin Environments
+echo ## PyWinCLI Environments
 echo.
 dir /A:D /B %VDIR%
 exit /b
