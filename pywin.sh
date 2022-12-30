@@ -20,13 +20,14 @@ export WINEPATH="$SCRIPTS"
 export WINEPREFIX="$PFX"
 
 ## Functions
-### Winecfg
-cfg(){
+
+### Run Winecfg for prefix
+wcfg(){
   winecfg
 }
 
 ### Open Python prefix in bash terminal
-cmd(){
+terminal(){
   wine cmd
 }
 
@@ -39,36 +40,42 @@ help(){
   echo -e "
   pywin <option>
 
-  Option   | Description
-  :------- | :----------
-  -t       | Open PyWin in Linux terminal
-  -c       | Open PyWin in Wine console
-  -h       | Display this help message
+  Option           | Description
+  :--------------- | :----------
+  -t, terminal | Open PyWin in Linux terminal
+  -c, console  | Open PyWin in Wine console
+  -w, wcfg     | Run winecfg for PyWin prefix
+  -h, help     | Display this help message
 
-  Once PyWin is loaded, use pve to load a python virtual environment:
+  Once PyWin is loaded, use the pve command to load the default Python virtual environment or launch with one of the options listed below.
 
   pve <option>
 
-  Option   | Description
-  :------- | :----------
+  Option     | Description
+  :--------- | :----------
   -l       | List available python environments
   -a <env> | Activate selected environment
-  -r <env> | Remove selected environment 
-  "
+  -d       | Deactivate loaded environment
+  -r <env> | Remove selected environment
+"
 }
 
 ## Create environment if missing
 if [[ ! -d $PFX ]]; then
-  echo -e "Please run install.sh script."
+  echo -e "\nPlease run PyWin install.sh script.\n"
 fi
 
-## Run wine cmd if no command given
+## Function shortcuts
 if [[ -z $CMD ]]; then
   echo -e "\nRun pywin -h for help.\n"
 elif [[ $CMD == "-h" ]]; then
   help
 elif [[ $CMD == "-t" ]]; then
-  cmd
+  terminal
 elif [[ $CMD == "-c" ]]; then
   console
+elif [[ $CMD == "-w" ]]; then
+  wcfg
+else
+  $CMD
 fi
