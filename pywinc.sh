@@ -1,11 +1,11 @@
 #! /bin/bash
 
-# PyWin
+# PyWinCLI
 
 ## Manage python environments for wine.
 
 ## Global variables
-PROFILE_DIR=$HOME/.pywin
+PROFILE_DIR=$HOME/.pywinc
 SCRIPTS=$PROFILE_DIR/scripts
 TMPDIR=$PROFILE_DIR/tmp
 VENV="$PROFILE_DIR/venv"
@@ -38,21 +38,21 @@ console(){
 
 help(){
   echo -e "
-  pywin <option>
+  pywinc <option>
 
-  Option           | Description
-  :--------------- | :----------
-  -t, terminal | Open PyWin in Linux terminal
-  -c, console  | Open PyWin in Wine console
-  -w, wcfg     | Run winecfg for PyWin prefix
+  Option       | Description
+  :----------- | :----------
+  -t, terminal | Open PyWinCLI in Linux terminal
+  -c, console  | Open PyWinCLI in Wine console
+  -w, wcfg     | Run winecfg for PyWinCLI prefix
   -h, help     | Display this help message
 
-  Once PyWin is loaded, use the pve command to load the default Python virtual environment or launch with one of the options listed below.
+  Once PyWinCLI is loaded, use the pve command to load the default Python virtual environment or launch with one of the options listed below.
 
   pve <option>
 
-  Option     | Description
-  :--------- | :----------
+  Option   | Description
+  :------- | :----------
   -l       | List available python environments
   -a <env> | Activate selected environment
   -d       | Deactivate loaded environment
@@ -62,12 +62,12 @@ help(){
 
 ## Create environment if missing
 if [[ ! -d $PFX ]]; then
-  echo -e "\nPlease run PyWin install.sh script.\n"
+  echo -e "\nPlease run PyWinCLI install.sh script.\n"
 fi
 
 ## Function shortcuts
 if [[ -z $CMD ]]; then
-  echo -e "\nRun pywin -h for help.\n"
+  echo -e "\nRun pywinc -h for help.\n"
 elif [[ $CMD == "-h" ]]; then
   help
 elif [[ $CMD == "-t" ]]; then

@@ -1,15 +1,15 @@
 #! /bin/bash
 
-# PyWin installer
+# PyWinCLI installer
 
 ## Global variables
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-source "$SCRIPT_DIR/pywin.sh"
+source "$SCRIPT_DIR/pywinc.sh"
 CMD=$1
 
 ## Functions
 
-### Install PyWin
+### Install PyWinCLI
 install()(
   #### Create profile directory
   mkdir -p "$TMPDIR"
@@ -38,13 +38,13 @@ install()(
   #### Install scripts
   mkdir -p "$SCRIPTS"
   cp -rv "$SCRIPT_DIR/pve.bat" "$SCRIPTS/"
-  ln -s "$SCRIPT_DIR/pywin.sh" "$HOME/.local/bin/pywin"
+  ln -s "$SCRIPT_DIR/pywinc.sh" "$HOME/.local/bin/pywinc"
   rm -rf "$TMPDIR"
 )
 
-### Uninstall PyWin
+### Uninstall PyWinCLI
 uninstall(){
-  rm -rf "$PROFILE_DIR"  "$HOME/.local/bin/pywin" "$SCRIPT_DIR"
+  rm -rf "$PROFILE_DIR"  "$HOME/.local/bin/pywinc" "$SCRIPT_DIR"
 }
 
 if [[ -z $CMD ]]; then
