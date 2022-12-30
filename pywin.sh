@@ -10,8 +10,6 @@ SCRIPTS=$PROFILE_DIR/scripts
 TMPDIR=$PROFILE_DIR/tmp
 VENV="$PROFILE_DIR/venv"
 PFX="$PROFILE_DIR/pfx"
-CONFIG=$SCRIPTS/config.bat
-CONFIGTMP=$SCRIPTS/config.txt
 CWD="$(pwd)"
 CMD="$1"
 
@@ -39,12 +37,23 @@ console(){
 
 help(){
   echo -e "
-  pwcli.sh <command>
+  pywin <option>
 
-  Command | Description
-  ------- | -----------
-  cmd     | Open PyWin in bash terminal
-  console | Open PyWin in wine console 
+  Option   | Description
+  :------- | :----------
+  -t       | Open PyWin in Linux terminal
+  -c       | Open PyWin in Wine console
+  -h       | Display this help message
+
+  Once PyWin is loaded, use pve to load a python virtual environment:
+
+  pve <option>
+
+  Option   | Description
+  :------- | :----------
+  -l       | List available python environments
+  -a <env> | Activate selected environment
+  -r <env> | Remove selected environment 
   "
 }
 
@@ -53,9 +62,13 @@ if [[ ! -d $PFX ]]; then
   echo -e "Please run install.sh script."
 fi
 
-## Run `wine cmd` if no command given
+## Run wine cmd if no command given
 if [[ -z $CMD ]]; then
+  echo -e "\nRun pywin -h for help.\n"
+elif [[ $CMD == "-h" ]]; then
   help
-else
-  $CMD
+elif [[ $CMD == "-t" ]]; then
+  cmd
+elif [[ $CMD == "-c" ]]; then
+  console
 fi
