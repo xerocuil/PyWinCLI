@@ -25,8 +25,8 @@ if "%OPT1%"=="-l" (
   exit /b
 )
 
-rem ### Load
-if "%OPT1%"=="-p" (
+rem ### Activate
+if "%OPT1%"=="-a" (
   set VENV=%VDIR%\%OPT2%
   echo ## %OPT2% virtual environment
   goto initalize
